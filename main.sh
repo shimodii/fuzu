@@ -35,9 +35,10 @@ while true; do
         read title
         printf "Task description: "
         read desc
-        new_task $title $desc
+        new_task "$title" "$desc"
     elif [[ $user_choice == "$CLOSE" ]]; then
-        kill $PID
+        #kill $PID
+        exit
     else
         if [[ -f $user_choice ]]; then
             rm $HOME_DIRECTORY/"$user_choice"
