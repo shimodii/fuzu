@@ -15,7 +15,7 @@ check_home_directory(){
 }
 adding_essential_items(){
     touch "$ADD_ITEM" $HOME_DIRECTORY
-    cat "$ADD_ITEM_DESC" > "$ADD_ITEM"
+    echo "$ADD_ITEM_DESC" > "$ADD_ITEM"
     #touch "$CLOSE" $HOME_DIRECTORY
 }
 
