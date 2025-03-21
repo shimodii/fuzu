@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HOME_DIRECTORY=~/.config/fuzu
-ADD_ITEM="new task"
+ADD_ITEM="+ new task"
 
 check_home_directory(){
     if [[ -d $HOME_DIRECTORY ]]; then
@@ -17,3 +17,11 @@ adding_essential_items(){
 # main
 check_home_directory
 adding_essential_items
+cd $HOME_DIRECTORY
+
+while true; do
+    user_choice=$(fzf -e --preview 'bat --color=always {}')
+    if [[ $user_choice == "+ new task"]]; then
+    else
+    fi
+done
