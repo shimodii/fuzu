@@ -11,6 +11,8 @@ flow :
 
 # INSTALL
 
+### ⚠️ Make sure you installed fzf on your machine.
+
 follow these steps:
 
 * clone or download the repo:
