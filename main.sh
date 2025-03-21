@@ -2,6 +2,7 @@
 
 HOME_DIRECTORY=~/.config/fuzu
 ADD_ITEM="+ new task"
+ADD_ITEM_DESC="Select if you want to add some tasks in your todo list :D"
 #CLOSE="x close"
 PID=$$
 
@@ -14,6 +15,7 @@ check_home_directory(){
 }
 adding_essential_items(){
     touch "$ADD_ITEM" $HOME_DIRECTORY
+    cat "$ADD_ITEM_DESC" > "$ADD_ITEM"
     #touch "$CLOSE" $HOME_DIRECTORY
 }
 
