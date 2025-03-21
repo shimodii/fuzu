@@ -29,14 +29,14 @@ adding_essential_items
 
 while true; do
     user_choice=$(fzf -e --preview 'bat --color=always {}')
-    if [[ $user_choice == "+ new task" ]]; then
+    if [[ $user_choice == "$ADD_ITEM" ]]; then
         clear
         printf "Task title: "
         read title
         printf "Task description: "
         read desc
         new_task $title $desc
-    else if [[ $user_choice == "x close fuzu" ]]; then
+    else if [[ $user_choice == "$CLOSE" ]]; then
         kill $PID
     else
         if [[ -f $user_choice ]]; then
