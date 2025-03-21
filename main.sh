@@ -43,6 +43,7 @@ while true; do
             fi
         fi
     else
+        clear
         exit
     fi
 done
