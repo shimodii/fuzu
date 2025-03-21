@@ -34,6 +34,8 @@ while true; do
         read desc
         new_task $title $desc
     else
-
+        if [[ -f $user_choice ]]; then
+            rm $HOME_DIRECTORY/$user_choice
+        fi
     fi
 done
