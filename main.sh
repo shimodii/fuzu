@@ -1,7 +1,9 @@
 #!/bin/bash
 
 HOME_DIRECTORY=~/.config/fuzu
-ADD_ITEM="+\ new\ task"
+ADD_ITEM="+ new task"
+CLOSE="x close"
+PID=$$
 
 check_home_directory(){
     if [[ -d $HOME_DIRECTORY ]]; then
@@ -11,12 +13,13 @@ check_home_directory(){
     fi
 }
 adding_essential_items(){
-    touch $ADD_ITEM $HOME_DIRECTORY
+    touch "$ADD_ITEM" $HOME_DIRECTORY
+    touch "$CLOSE" $HOME_DIRECTORY
 }
 
 new_task(){
-    touch $1
-    echo $2 > $1
+    touch "$1"
+    echo "$2" > "$1"
 }
 
 # main
@@ -26,16 +29,18 @@ adding_essential_items
 
 while true; do
     user_choice=$(fzf -e --preview 'bat --color=always {}')
-    if [[ $user_choice == "+ new task"]]; then
+    if [[ $user_choice == "+ new task" ]]; then
         clear
         printf "Task title: "
         read title
-        read "Task description: "
+        printf "Task description: "
         read desc
         new_task $title $desc
+    else if [[ $user_choice == "x close fuzu" ]]; then
+        kill $PID
     else
         if [[ -f $user_choice ]]; then
-            rm $HOME_DIRECTORY/$user_choice
+            rm $HOME_DIRECTORY/"$user_choice"
         fi
     fi
 done
