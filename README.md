@@ -11,7 +11,7 @@ flow :
 
 # INSTALL
 
-### ⚠️ Make sure you installed fzf on your machine.
+### ⚠️ Make sure you installed **fzf** and **bat** on your machine.
 
 follow these steps:
 
