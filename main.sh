@@ -14,6 +14,11 @@ adding_essential_items(){
     touch $ADD_ITEM $HOME_DIRECTORY
 }
 
+new_task(){
+    touch $1
+    echo $2 > $1
+}
+
 # main
 check_home_directory
 adding_essential_items
@@ -22,6 +27,13 @@ cd $HOME_DIRECTORY
 while true; do
     user_choice=$(fzf -e --preview 'bat --color=always {}')
     if [[ $user_choice == "+ new task"]]; then
+        clear
+        printf "Task title: "
+        read title
+        read "Task description: "
+        read desc
+        new_task $title $desc
     else
+
     fi
 done
