@@ -36,7 +36,7 @@ while true; do
         printf "Task description: "
         read desc
         new_task $title $desc
-    else if [[ $user_choice == "$CLOSE" ]]; then
+    elif [[ $user_choice == "$CLOSE" ]]; then
         kill $PID
     else
         if [[ -f $user_choice ]]; then
